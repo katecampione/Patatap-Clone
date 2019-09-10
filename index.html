@@ -5,18 +5,36 @@
 
 		<link rel="stylesheet" type="text/css" href="css/Patatap.css"/>
     <script type="text/javascript" src="js/paper-full.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
+
+    var sound = new Howl({
+      src: ['Assets/sounds/bubbles.mp3']
+    });
+    var sound2 = new Howl({
+      src: ['Assets/sounds/clay.mp3']
+    });
 
     var circles = [];
 
     function onKeyDown(event) {
+
+
+      sound.play();
       var maxPoint = new Point(view.size.width, view.size.height);
       var randomPoint = Point.random();
       var point = maxPoint * randomPoint;
       var newCircle = new Path.Circle(point, 500)
+      if (event.key === "a"){
+        sound.play();
+      }
+      if(event.key === "s"){
+        sound2.play();
+        newCircle.fillColor = "#2c3e50"
+      }
       newCircle.fillColor = "orange";
       circles.push(newCircle);
+      newCircle.fillColor = "red";
     }
 
     function onFrame(event) {
@@ -25,6 +43,8 @@
         circles[i].scale(.9);
       }
 }
+
+
 
 </script>
 </head>
