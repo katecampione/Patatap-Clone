@@ -7,4 +7,13 @@ canvas {
 body, html {
   height: 100%;
   margin: 0;
+  background: black;
+}
+
+p{
+	
+	color: white;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 200;
 }
